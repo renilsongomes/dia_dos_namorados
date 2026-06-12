@@ -1,0 +1,254 @@
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding: 0;
+    font-family: roboto, sans-serif;
+    background-color: rgb(84, 14, 14);
+    color: #fff;
+}
+.container{
+    max-width: 1024px;/*esta  quantidade de pixel para a largura do nosso conteúdo ficou exelente*/
+    width:100%;/*isso significa que tudo que fazer parte da classe container não poderá ultrapassar 1024 px, pois este é o 100%*/
+    margin: 0 auto;
+}
+.subli{
+    color: rgb(174, 56, 158);
+    font-family:'Olé', cursive;
+}
+.love h3{
+        font-family:'Olé', cursive;
+}
+header .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;/*centraliza na vertical*/
+}
+header{
+    padding: 16px 0 0;/*colocamos mais um 0 por ultimo para afetar bottom, pois 
+    não queremos o espaçamento da parte inferior do site,espaçmento interno topo e inferior*/
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 56px;/*serve para distânciar o cabeçalho do conteúdo em destaque(principal) */
+}
+.declaracao{
+    padding-bottom: 20px;
+}
+.submenu{
+    display:none;/*impede que o elemento fique visivel*/
+    border:1px solid red;
+    position: absolute;/*o position absolute ele é utilizado para que quando selecionarmos o menu, 
+    ele não será deslocado*/
+    left: 0;/*com isso o submenu começará junto com o  seu elemento (padding)*/
+    width: 300px;/*com essa regrinha conseguimos impedir que o submenu  que tenha uma quantidade de texto maior não se 
+    quebre em duas  linhas*/
+    top: 100%;/*com o top 0 levamos
+    o elemento para o inicio de seu container, no entanto,
+    isso não faz com que ele acompanhe o submenu e para que esse acompanhamento aconteça, devemos utilizar o 
+    width:100%, que por meio dele dizemos basicamente:
+    "ababou o elemento? chegou em 100%  dele? se sim inicie o menu!"*/
+    background-color: #fff;
+}
+.menu > li{/*este sinal de maior que é para indicar que queremos que esse efeito seja aplicado apenas 
+    ao filho direto do "menu"*/
+    float:left;/*o float tem o efeito de deixar um elemento um ao lado do outro, no entanto
+    ele possui um efeito colateral, ele elimina o espaçamento. e para corrigir isso que utilizamos o clear:
+     sendo que se o float for left o clear também deve ser left */
+    list-style: none;/*remove aquele ponto que fica sobre os elementos*/
+    padding: 16px;/*este é o espaçamento entre o menu esporte e  econômia*/
+    border-top: 4px solid transparent;
+    position:relative;/*o position relativo tem a capacidade de conter  o elemento filho que tenha o position absolute,
+    neste caso impedindo que ele ultrapasse o espaçamento do elemento*/
+}
+
+/*comentamos o clear-left pois ele é  apenas para a esquerda e para não termos que criar um para
+left e outro para o right, usamos o both que funciona para ambos.
+.clear-left{
+    clear:left; e por meio deste removemos o efeito colateral causado pelo float, left refere-se a esquerda
+}*/
+.clear{
+    clear: both;
+}
+.menu li:hover .submenu{/*por meio deste comando que conseguimos aplicar o efeito hover no submenu, para que 
+    ele apareça quando o usuario passar o mouse por cima dele*/
+    display: block;
+}
+.menu li:hover{
+    border-color: red;
+}
+.submenu li{
+    display: block;
+    padding:8px;
+}
+.conteudo{
+    display:grid;/*quando trabalhamos com grids temos as colunas e as linhas; então para definir o layout desse grid*/
+    grid-template-columns:70% 30%;/*aqui podemos trabalhar com porcentagens e valores fixos e pexels e valores automáticos, pr isso vou ter
+    o valor uma parte em pixel e o restante será um valor dinânmico, vale observar que aqui temos a tag main ocupando 70%, portanto a primeira coluna terá 
+    os 70% de largura e a segunda coluna terá 30% e podemos perceber que o nosso layout já ajustou a isso;*/
+}
+/*quando aplicamos essa regra grid-template-columns:70% 30%; infelismente acabou que as nossas imagens não respeitaram essa regra 
+por isso utilizaremos o max-width:100%, para que assim elas respeitem este espaçamento e não ultrapassem fazendo que acabe sendo 
+criado um scrow na horizontal*/
+.noticia img{
+    max-width: 100%;/*isso significa que a imagem tem que ter no maximo 100% da largura que pré definimos*/
+}
+/*.destaque{/*aplicação de margem na seção de destaque na parte inferior
+    margin-bottom: 56px;
+}
+removemos essa regra pois   ela não é mais necessaria no nosso layout  
+*/ 
+.destaque .noticia a{
+    display:block;/*estou dizendo que o link dentro de noticia terá o display flex, fazendo com que o nosso texto(titulo img) 
+    fique ao lado da img; quando alteramos de flex para block o texto que estava
+    acima, foi para baixo;*/
+    font-family: 2em;/*com apenas esses 2em a nossa imagem já fica bem grande*/
+}
+.destaque .noticia img{
+    margin-right: 0px;/*está é uma margem a direita da imagem*/
+}
+
+section h2{
+    margin-bottom: 32px;/*margem na parte inferior dos titulos*/
+}
+
+aside{/*estilização da barra lateral*/
+padding-left: 40px;/*aplicamos está estilização para que o destaque fique mais afastado das novidades*/
+}
+
+aside .noticia{/*aplicado para as noticias que estão em novidades*/
+    margin-bottom: 24px;/*margem do canto inferior*/
+    unicode-bidi: none;
+}
+.minhas-imagens img {
+    width: 200px;      /* mesma largura para todas */
+    height: 400px;     /* mesma altura para todas */
+    object-fit: cover; /* mantém a proporção sem distorcer */
+}
+.noticias{
+    display: grid;
+    grid-template-columns: repeat(3, 33.33%);/*ao invés de escrever 33,33% três vezes, podemos simplismente escrever esse comando de repeat
+    que tem por objetivo 1ª coluna colocamos a quantidade  de vezes que queremos que o texto seja repetido e
+    depois colocamos na 2ª coluna, o valor a ser repitido;
+    /*quando criamos essa regra do:
+.noticias{
+    display: grid;
+    grid-template-columns: repeat(3, 32.6%); 
+    acabou que não ficamos com espaçamento muito legal entre as colunas e nem mesmo entre as linhas, o que podemos fazer é estar colocando um espaçamento nas colunas do meio
+    na esquerda e na direita, no  entanto esse espaçamento deverá ser  considerado quando deficimos o valor da coluna (33,33%) ou seja
+esse 33,33% era quando era de 100, mas agora para criarmos esse espaçamento entre as colunas, vamos ter que descontar 2% ou seja vamos ter agora 98% 
+e pegamos esse valor e dividimos por 3, tendo então 32,6% e com essa nva definição temos 2% para trabalhar, então agora será esse a porcentagem para espaçamento e para 
+isso utilizamos o colum-gap:1% que criará 2 espaçamentos de 1%;
+    */
+    column-gap:1%;/*cria um espaçamento entre as colunas;
+    e agora vamos aplicar essa regra para as linhas e para linha não precisamos nos preocupar com o tamanho do container: escrevemos:
+    row-gap:5%*/
+    row-gap: 5%;/*tras um espaçamento as linhas no seu layout*/
+}
+
+@media screen and (max-width: 767px)/*essa media query, ela vai contemplar o tamanho maximo de um celular(760px)*/{
+    .conteudo{
+        display: block;
+    }
+    .container {
+        max-width: 90%;/*mudamos aqui par que ele tenha no maximo 90% da largura do dispositivo*/
+    }
+    .destaque .noticia a{
+    display: block;
+        font-size: 1.5em;
+    }
+    .destaque .noticia img{
+        margin-right: 0;
+    }
+    .noticias{
+        display:block;/*como nesse caso não temos o display:grid, 
+        ai sim temos que aplicar o margin-bottom: ?;*/
+    }
+    .noticias .noticia{
+        margin-bottom: 32px;
+    }
+    /*ao lado do bloco de novidades tem um padding-left, devemos remove-lô */
+    aside{
+        padding-left: 0;
+    }
+    /*basicamente essa foi a construção de nosso site e agora na media screen agora vamos apenas removendo o display:\grid, para 
+    que fique algo "blocado";
+    e agora no menu vamos estar colocando o titulo primeiro e depois o formulario*/
+    /*aqui vamos alterar a seguinte regra para estar mudadndo a direção do 
+    flex-box, pois ele trabalha por 
+    padrão em uma direção de linhas e iremos mudar isso para colunas por  meio do
+    flex-diretion*/
+    header div.container{
+        flex-direction: column;
+    }
+    .submenu{
+        display:block;/*impede que o elemento fique visivel*/
+    /* border:1px solid red;*/
+        position: relative;/*o position absolute ele é utilizado para que quando selecionarmos o menu, 
+        ele não será deslocado*/
+        /*left: 0;com isso o submenu começará junto com o  seu elemento (padding)*/
+        width: 100%;/*com essa regrinha conseguimos impedir que o submenu  que tenha uma quantidade de texto maior não se 
+        quebre em duas  linhas*/
+        /*top: 100%;com o top 0 levamos
+        o elemento para o inicio de seu container, no entanto,
+        isso não faz com que ele acompanhe o submenu e para que esse acompanhamento aconteça, devemos utilizar o 
+        width:100%, que por meio dele dizemos basicamente:
+        "ababou o elemento? chegou em 100%  dele? se sim inicie o menu!"*/
+        /*background-color: #fff;*/
+        border:none;
+    }
+    .menu{
+        display:none;
+    }
+    .menu > li{/*este sinal de maior que é para indicar que queremos que esse efeito seja aplicado apenas 
+        ao filho direto do "menu"*/
+        clear: both;
+    }
+
+    /*comentamos o clear-left pois ele é  apenas para a esquerda e para não termos que criar um para
+    left e outro para o right, usamos o both que funciona para ambos.
+    .clear-left{
+        clear:left; e por meio deste removemos o efeito colateral causado pelo float, left refere-se a esquerda
+    }*/
+    .submenu li{
+        display: block;
+        padding:8px;
+    }
+    .botao-menu{
+        display: flex;
+        justify-content: center;
+        margin-top: 16px;
+        padding-bottom: 16px;
+    }
+    .botao-menu button{
+        padding: 8px;
+    }
+}
+
+@media screen and (min-width:768px) and (max-width:1023px){
+    /*aqui vamos adaptar o container*/
+    .container{
+        max-width: 90%
+    }
+    .botao-menu{
+        display:none;
+    }
+    .destaque .noticia a {
+        font-size: 1.5em;
+    }
+    .noticias {
+        grid-template-columns: repeat(2,49%); 
+    /*na parte de ultimas noticia, temos as colunas e temos que dividir o espaçamento que temos
+e fizemos 100% - 2% que é o espaçamento na vertical entre as colunas e depois dividimos pelo número de colunas 
+que no nosso caso é 2 por serem duas colunas, e assim chegaremos em 49%*/
+}
+}
+@media screen and  (min-width:1024px) {
+    .botao-menu{
+        display: none;
+    }   
+}
+.desejo strong{
+color: rgb(150, 35, 92);
+
+}
+.desejo{
+    padding-top: 120px;
+}
